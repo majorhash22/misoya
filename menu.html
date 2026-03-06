@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Misoya Menu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#111;
+    color:#eee;
+}
+
+/* HEADER */
+
+header{
+    padding:25px;
+    text-align:center;
+    border-bottom:1px solid #333;
+}
+
+header h1{
+    color:#e63946;
+    font-size:2.2rem;
+}
+
+/* MENU LAYOUT */
+
+.menu-container{
+    max-width:1000px;
+    margin:auto;
+    padding:50px 20px;
+}
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    margin-bottom:60px;
+}
+
+.menu-item img{
+    width:280px;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.menu-text h2{
+    margin:0;
+    color:#f77f00;
+}
+
+.menu-text p{
+    margin:8px 0 12px;
+    color:#bbb;
+}
+
+.price{
+    font-weight:600;
+    color:#e63946;
+}
+
+/* Alternate layout */
+
+.menu-item:nth-child(even){
+    flex-direction:row-reverse;
+}
+
+/* Back button */
+
+.back{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.back a{
+    padding:12px 25px;
+    background:#e63946;
+    color:white;
+    border-radius:6px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.menu-item{
+flex-direction:column !important;
+text-align:center;
+}
+
+.menu-item img{
+width:100%;
+height:220px;
+}
+
+}
+
+/* IMAGE HOVER EFFECT */
+
+.menu-item img{
+    width:280px;
+    height:200px;
+    object-fit:cover;
+    border-radius:10px;
+    cursor:pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+}
+
+.menu-item img:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.7);
+}
+
+/* IMAGE VIEWER (POPUP) */
+
+#imageViewer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+#viewerImg{
+    max-width:90%;
+    max-height:85%;
+    border-radius:10px;
+}
+
+#closeBtn{
+    position:absolute;
+    top:25px;
+    right:40px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Misoya Menu</h1>
+</header>
+
+<div class="menu-container">
+
+<div class="menu-item">
+<img src="images/menu/chicken_teriyaki_roll.jpg">
+<div class="menu-text">
+<h2>Chicken Teriyaki Roll</h2>
+<p>Grilled chicken glazed with teriyaki sauce wrapped in sushi rice and seaweed.</p>
+<div class="price">$9.99</div>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="images/menu/classic_roll.webp">
+<div class="menu-text">
+<h2>Classic Roll</h2>
+<p>A traditional sushi roll prepared with seasoned rice and fresh ingredients.</p>
+<div class="price">$7.99</div>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="images/menu/masago_sushi.webp">
+<div class="menu-text">
+<h2>Masago Sushi</h2>
+<p>Fresh sushi topped with bright and flavorful masago fish roe.</p>
+<div class="price">$8.49</div>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="images/menu/saba_sushi.webp">
+<div class="menu-text">
+<h2>Saba Sushi</h2>
+<p>Delicious mackerel sushi served over perfectly seasoned rice.</p>
+<div class="price">$8.99</div>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="images/menu/tamago_roll.jpg">
+<div class="menu-text">
+<h2>Tamago Roll</h2>
+<p>Sweet Japanese omelette rolled with sushi rice and nori.</p>
+<div class="price">$7.49</div>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="images/menu/tamago_sushi.webp">
+<div class="menu-text">
+<h2>Tamago Sushi</h2>
+<p>Japanese omelette sushi with a delicate sweet flavor.</p>
+<div class="price">$7.99</div>
+</div>
+</div>
+
+<div class="menu-item">
+<img src="images/menu/unagibbq.webp">
+<div class="menu-text">
+<h2>Unagi BBQ</h2>
+<p>Grilled freshwater eel glazed with savory Japanese BBQ sauce.</p>
+<div class="price">$11.99</div>
+</div>
+</div>
+
+</div>
+
+<div class="back">
+<a href="index.html">Back to Home</a>
+</div>
+
+<div id="imageViewer">
+    <span id="closeBtn">&times;</span>
+    <img id="viewerImg">
+</div>
+
+</body>
+</html>
+<script>
+
+const images = document.querySelectorAll(".menu-item img");
+const viewer = document.getElementById("imageViewer");
+const viewerImg = document.getElementById("viewerImg");
+const closeBtn = document.getElementById("closeBtn");
+
+images.forEach(img => {
+    img.addEventListener("click", () => {
+        viewer.style.display = "flex";
+        viewerImg.src = img.src;
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    viewer.style.display = "none";
+});
+
+viewer.addEventListener("click", (e) => {
+    if(e.target !== viewerImg){
+        viewer.style.display = "none";
+    }
+});
+
+</script>

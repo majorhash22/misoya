@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Misoya</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#111;
+    color:#eee;
+}
+
+/* HEADER */
+
+header{
+    padding:25px;
+    text-align:center;
+    border-bottom:1px solid #333;
+}
+
+header h1{
+    color:#e63946;
+    font-size:2.3rem;
+}
+
+/* MAIN CONTAINER */
+
+.contact-container{
+    max-width:1100px;
+    margin:auto;
+    padding:50px 20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+/* INFO PANEL */
+
+.contact-info{
+    background:#1b1b1b;
+    padding:30px;
+    border-radius:10px;
+}
+
+.contact-info h2{
+    color:#f77f00;
+    margin-bottom:20px;
+}
+
+.info-item{
+    margin-bottom:18px;
+}
+
+.info-item strong{
+    color:#e63946;
+}
+
+.hours{
+    margin-top:25px;
+}
+
+.hours div{
+    display:flex;
+    justify-content:space-between;
+    border-bottom:1px solid #333;
+    padding:6px 0;
+}
+
+/* FORM */
+
+.contact-form{
+    background:#1b1b1b;
+    padding:30px;
+    border-radius:10px;
+}
+
+.contact-form h2{
+    color:#f77f00;
+    margin-bottom:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    border:none;
+    border-radius:6px;
+    background:#2a2a2a;
+    color:#eee;
+}
+
+.contact-form textarea{
+    min-height:120px;
+    resize:none;
+}
+
+.contact-form button{
+    width:100%;
+    padding:12px;
+    background:#e63946;
+    border:none;
+    border-radius:6px;
+    font-weight:600;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.contact-form button:hover{
+    background:#f77f00;
+}
+
+/* MAP */
+
+.map{
+    margin-top:50px;
+}
+
+.map iframe{
+    width:100%;
+    height:350px;
+    border:none;
+    border-radius:10px;
+}
+
+/* BACK BUTTON */
+
+.back{
+    text-align:center;
+    margin:50px 0;
+}
+
+.back a{
+    padding:12px 25px;
+    background:#e63946;
+    color:white;
+    border-radius:6px;
+    text-decoration:none;
+}
+
+.back a:hover{
+    background:#f77f00;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Contact Misoya</h1>
+<p>Authentic Japanese & Korean Dining Experience</p>
+</header>
+
+<div class="contact-container">
+
+<div class="contact-info">
+
+<h2>Visit Us</h2>
+
+<div class="info-item">
+<strong>Address</strong><br>
+Miso Ya Japanese & Korean Cuisine<br>
+229 Victoria Ave E<br>
+Regina, SK S4N 0P4<br>
+Canada
+</div>
+
+<div class="info-item">
+<strong>Phone</strong><br>
++1 (306) 757-1512
+</div>
+
+<div class="info-item">
+<strong>Email</strong><br>
+contact@misoyacuisine.ca
+</div>
+
+<div class="hours">
+<h2>Opening Hours</h2>
+
+<div><span>Monday</span><span>11:30 – 21:00</span></div>
+<div><span>Tuesday</span><span>11:30 – 21:00</span></div>
+<div><span>Wednesday</span><span>11:30 – 22:00</span></div>
+<div><span>Thursday</span><span>11:30 – 22:00</span></div>
+<div><span>Friday</span><span>11:30 – 23:30</span></div>
+<div><span>Saturday</span><span>12:00 – 23:30</span></div>
+<div><span>Sunday</span><span>12:00 – 20:00</span></div>
+
+</div>
+
+</div>
+
+<div class="contact-form">
+
+<h2>Send Us a Message</h2>
+
+<form>
+
+<input type="text" placeholder="Your Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="text" placeholder="Subject">
+
+<textarea placeholder="Write your message here..."></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="map">
+
+<iframe
+src="https://www.google.com/maps?q=229+Victoria+Ave+E+Regina+SK+S4N+0P4&output=embed">
+</iframe>
+
+</div>
+
+<div class="back">
+<a href="index.html">Back to Home</a>
+</div>
+
+</body>
+</html>
