@@ -1,234 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Misoya — Authentic Japanese & Korean</title>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<style>
-
-/* GLOBAL RESET + BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Poppins', sans-serif; background: #1a1a1a; color: #e0e0e0; }
-a { text-decoration: none; color: inherit; }
-
-/* HEADER NAV */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(20,20,20,0.95);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    z-index: 1000;
-}
-nav {
-    max-width: 1200px;
-    margin: auto;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo { font-size: 2rem; font-weight: 700; color: #e63946; }
-.menu { display: flex; gap: 1.8rem; font-weight: 600; }
-.menu a:hover { color: #f77f00; }
-
-/* HERO CAROUSEL */
-#hero { margin-top: 80px; position: relative; width: 100%; overflow: hidden; }
-#hero .slides { display: flex; transition: transform 0.5s ease-in-out; }
-.slide { min-width: 100%; position: relative; }
-.slide img { width: 100%; height: 520px; object-fit: cover; filter: brightness(0.7); }
-
-/* Carousel controls */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    background: rgba(40,40,40,0.7);
-    border: none;
-    font-size: 2rem;
-    padding: 0.3rem 0.6rem;
-    cursor: pointer;
-    transform: translateY(-50%);
-    color: #fff;
-}
-#prev { left: 15px; }
-#next { right: 15px; }
-.carousel-btn:hover { background: rgba(70,70,70,0.9); }
-
-/* SHORT INTRO SECTION */
-#intro {
-    max-width: 900px;
-    margin: 3rem auto;
-    text-align: center;
-    padding: 0 1rem;
-}
-#intro h1 { font-size: 2.5rem; color: #e63946; margin-bottom: 1rem; }
-#intro p { font-size: 1.1rem; line-height: 1.6; color: #ccc; }
-
-/* MENU PRODUCT GRID */
-#menu-section {
-    max-width: 1200px;
-    margin: 3rem auto;
-    padding: 0 2rem;
-}
-#menu-section h2 { font-size: 2rem; color: #e63946; margin-bottom: 2rem; text-align: center; }
-
-.grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.card {
-    background: #2a2a2a;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.5);
-}
-.card img { width: 100%; height: 180px; object-fit: cover; filter: brightness(0.8); }
-.card-body { padding: 1rem; }
-.card-body h3 { font-size: 1.3rem; color: #f77f00; margin-bottom: 0.5rem; }
-.card-body p { font-size: 0.95rem; margin-bottom: 0.9rem; color: #ccc; }
-.card-body button {
-    width: 100%;
-    padding: 0.6rem 0;
-    border: none;
-    background: #e63946;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.card-body button:hover { background: #f77f00; }
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 1.8rem;
-    background: #111;
-    color: #aaa;
-    margin-top: 3rem;
-    font-size: 0.9rem;
-}
-footer a { color: #e63946; }
-
-/* RESPONSIVE */
-@media(max-width: 768px) {
-    .slide img { height: 300px; }
-    nav { flex-direction: column; gap: 0.7rem; }
-}
-</style>
+<title>Miso Ya — Authentic Japanese & Korean</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- HEADER -->
+<!-- NAVBAR -->
 <header>
-    <nav>
-        <div class="logo">Misoya</div>
-        <div class="menu">
-            <a href="#hero">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="contactus.html">Contact</a>
-        </div>
-    </nav>
+<nav>
+    <div class="logo">Miso Ya</div>
+
+    <!-- Hamburger icon -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Menu items -->
+    <div class="menu" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contactus.html">Contact</a>
+    </div>
+</nav>
 </header>
 
 <!-- HERO CAROUSEL -->
 <section id="hero">
-    <div class="slides">
-        <div class="slide"><img src="images/beef_teriyaki_roll.webp" alt="Beef Teriyaki Roll"></div>
-        <div class="slide"><img src="images/california_roll.jpg" alt="California Roll"></div>
-        <div class="slide"><img src="images/dynamite_roll.jpg" alt="Dynamite Roll"></div>
-        <div class="slide"><img src="images/salmo_roll.jpg" alt="Salmo Roll"></div>
-        <div class="slide"><img src="images/yam_and_avocado_roll.webp" alt="Yam & Avocado Roll"></div>
-    </div>
-    <button class="carousel-btn" id="prev">&#10094;</button>
-    <button class="carousel-btn" id="next">&#10095;</button>
+<div class="slides">
+    <div class="slide"><img src="images/beef_teriyaki_roll.webp" alt="Beef Teriyaki Roll"></div>
+    <div class="slide"><img src="images/california_roll.jpg" alt="California Roll"></div>
+    <div class="slide"><img src="images/dynamite_roll.jpg" alt="Dynamite Roll"></div>
+    <div class="slide"><img src="images/salmo_roll.jpg" alt="Salmon Roll"></div>
+    <div class="slide"><img src="images/yam_and_avocado_roll.webp" alt="Yam Avocado Roll"></div>
+</div>
+<button class="carousel-btn" id="prev">&#10094;</button>
+<button class="carousel-btn" id="next">&#10095;</button>
 </section>
 
-<!-- SHORT HERO TEXT -->
+<!-- INTRO -->
 <section id="intro">
-    <h1>Welcome to Misoya</h1>
-    <p>Serving the finest blends of Japanese precision and Korean bold flavors — made fresh to order, perfectly balanced in taste and art.</p>
+<h1>Welcome to Miso Ya</h1>
+<p>
+Serving the finest blends of Japanese precision and Korean bold flavors — made fresh to order and crafted with care.
+</p>
 </section>
 
-<!-- MENU PRODUCTS -->
+<!-- FEATURED MENU -->
 <section id="menu-section">
-    <h2>Order Your Favorites</h2>
-    <div class="grid">
+<h2>Order Your Favorites</h2>
+<div class="grid">
 
-        <div class="card">
-            <img src="images/beef_teriyaki_roll.webp" alt="Beef Teriyaki Roll">
-            <div class="card-body">
-                <h3>Beef Teriyaki Roll</h3>
-                <p>Delicious teriyaki glazed beef with fresh vegetables wrapped in rice.</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
+<div class="card">
+<img src="images/beef_teriyaki_roll.webp">
+<div class="card-body">
+<h3>Beef Teriyaki Roll</h3>
+<p>Teriyaki glazed beef with fresh vegetables wrapped in sushi rice.</p>
+<button onclick="window.location.href='menu.html'">View Menu</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="images/california_roll.jpg" alt="California Roll">
-            <div class="card-body">
-                <h3>California Roll</h3>
-                <p>Classic crab, avocado, and cucumber sushi roll.</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
+<div class="card">
+<img src="images/california_roll.jpg">
+<div class="card-body">
+<h3>California Roll</h3>
+<p>Classic crab, avocado and cucumber sushi roll.</p>
+<button onclick="window.location.href='menu.html'">View Menu</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="images/dynamite_roll.jpg" alt="Dynamite Roll">
-            <div class="card-body">
-                <h3>Dynamite Roll</h3>
-                <p>Spicy seafood mix with creamy sauce and crunch.</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
+<div class="card">
+<img src="images/dynamite_roll.jpg">
+<div class="card-body">
+<h3>Dynamite Roll</h3>
+<p>Spicy seafood mix topped with creamy sauce.</p>
+<button onclick="window.location.href='menu.html'">View Menu</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="images/salmo_roll.jpg" alt="Salmo Roll">
-            <div class="card-body">
-                <h3>Salmo Roll</h3>
-                <p>Fresh salmon with avocado and a touch of wasabi sauce.</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
+<div class="card">
+<img src="images/salmo_roll.jpg">
+<div class="card-body">
+<h3>Salmon Roll</h3>
+<p>Fresh salmon paired with avocado and sushi rice.</p>
+<button onclick="window.location.href='menu.html'">View Menu</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="images/yam_and_avocado_roll.webp" alt="Yam & Avocado Roll">
-            <div class="card-body">
-                <h3>Yam & Avocado Roll</h3>
-                <p>Sweet yam with creamy avocado rolled to perfection.</p>
-                <button>Add to Cart</button>
-            </div>
-        </div>
+<div class="card">
+<img src="images/yam_and_avocado_roll.webp">
+<div class="card-body">
+<h3>Yam & Avocado Roll</h3>
+<p>Sweet yam tempura with creamy avocado.</p>
+<button onclick="window.location.href='menu.html'">View Menu</button>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- FOOTER -->
-<footer id="contact">
-    <p>&copy; 2026 Misoya. All rights reserved.</p>
-    <p>Contact: <a href="mailto:info@misoya.com">info@misoya.com</a> | +1 234 567 890</p>
+<footer>
+<p>© 2026 Miso Ya. All rights reserved.</p>
+<p>Contact: contact@misoyacuisine.ca | +1 (306) 757-1512</p>
 </footer>
 
-<!-- JS CAROUSEL -->
+<!-- SCRIPTS -->
 <script>
-    const slides = document.querySelector('.slides');
-    const slide = document.querySelectorAll('.slide');
-    let idx = 0;
+const slides = document.querySelector('.slides');
+const slide = document.querySelectorAll('.slide');
+let index = 0;
 
-    document.getElementById('next').addEventListener('click', () => {
-        idx = (idx + 1) % slide.length;
-        slides.style.transform = `translateX(-${idx * 100}%)`;
-    });
+document.getElementById("next").onclick = () => {
+    index = (index + 1) % slide.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+};
 
-    document.getElementById('prev').addEventListener('click', () => {
-        idx = (idx - 1 + slide.length) % slide.length;
-        slides.style.transform = `translateX(-${idx * 100}%)`;
-    });
+document.getElementById("prev").onclick = () => {
+    index = (index - 1 + slide.length) % slide.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+};
 
-    setInterval(() => {
-        idx = (idx + 1) % slide.length;
-        slides.style.transform = `translateX(-${idx * 100}%)`;
-    }, 5000);
+setInterval(() => {
+    index = (index + 1) % slide.length;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}, 5000);
+
+// Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
+});
 </script>
 
 </body>
