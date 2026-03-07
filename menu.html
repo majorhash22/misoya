@@ -1,243 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Misoya Menu</title>
-
+<title>Miso Ya Menu</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-
-<style>
-
-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-    background:#111;
-    color:#eee;
-}
-
-/* HEADER */
-
-header{
-    padding:25px;
-    text-align:center;
-    border-bottom:1px solid #333;
-}
-
-header h1{
-    color:#e63946;
-    font-size:2.2rem;
-}
-
-/* MENU LAYOUT */
-
-.menu-container{
-    max-width:1000px;
-    margin:auto;
-    padding:50px 20px;
-}
-
-.menu-item{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    margin-bottom:60px;
-}
-
-.menu-item img{
-    width:280px;
-    height:200px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-.menu-text h2{
-    margin:0;
-    color:#f77f00;
-}
-
-.menu-text p{
-    margin:8px 0 12px;
-    color:#bbb;
-}
-
-.price{
-    font-weight:600;
-    color:#e63946;
-}
-
-/* Alternate layout */
-
-.menu-item:nth-child(even){
-    flex-direction:row-reverse;
-}
-
-/* Back button */
-
-.back{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.back a{
-    padding:12px 25px;
-    background:#e63946;
-    color:white;
-    border-radius:6px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.menu-item{
-flex-direction:column !important;
-text-align:center;
-}
-
-.menu-item img{
-width:100%;
-height:220px;
-}
-
-}
-
-/* IMAGE HOVER EFFECT */
-
-.menu-item img{
-    width:280px;
-    height:200px;
-    object-fit:cover;
-    border-radius:10px;
-    cursor:pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s;
-}
-
-.menu-item img:hover{
-    transform:scale(1.05);
-    box-shadow:0 10px 25px rgba(0,0,0,0.7);
-}
-
-/* IMAGE VIEWER (POPUP) */
-
-#imageViewer{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.9);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-}
-
-#viewerImg{
-    max-width:90%;
-    max-height:85%;
-    border-radius:10px;
-}
-
-#closeBtn{
-    position:absolute;
-    top:25px;
-    right:40px;
-    font-size:40px;
-    color:white;
-    cursor:pointer;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <header>
-<h1>Misoya Menu</h1>
+<nav>
+    <div class="logo">Miso Ya</div>
+
+    <!-- Hamburger icon -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Menu items -->
+    <div class="menu" id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="contactus.html">Contact</a>
+    </div>
+</nav>
 </header>
 
+<!-- MENU CONTENT -->
 <div class="menu-container">
 
 <div class="menu-item">
-<img src="images/menu/chicken_teriyaki_roll.jpg">
+<img src="images/menu/chicken_teriyaki_roll.jpg" alt="Chicken Teriyaki Roll">
 <div class="menu-text">
 <h2>Chicken Teriyaki Roll</h2>
 <p>Grilled chicken glazed with teriyaki sauce wrapped in sushi rice and seaweed.</p>
 <div class="price">$9.99</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 <div class="menu-item">
-<img src="images/menu/classic_roll.webp">
+<img src="images/menu/classic_roll.webp" alt="Classic Roll">
 <div class="menu-text">
 <h2>Classic Roll</h2>
 <p>A traditional sushi roll prepared with seasoned rice and fresh ingredients.</p>
 <div class="price">$7.99</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 <div class="menu-item">
-<img src="images/menu/masago_sushi.webp">
+<img src="images/menu/masago_sushi.webp" alt="Masago Sushi">
 <div class="menu-text">
 <h2>Masago Sushi</h2>
 <p>Fresh sushi topped with bright and flavorful masago fish roe.</p>
 <div class="price">$8.49</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 <div class="menu-item">
-<img src="images/menu/saba_sushi.webp">
+<img src="images/menu/saba_sushi.webp" alt="Saba Sushi">
 <div class="menu-text">
 <h2>Saba Sushi</h2>
 <p>Delicious mackerel sushi served over perfectly seasoned rice.</p>
 <div class="price">$8.99</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 <div class="menu-item">
-<img src="images/menu/tamago_roll.jpg">
+<img src="images/menu/tamago_roll.jpg" alt="Tamago Roll">
 <div class="menu-text">
 <h2>Tamago Roll</h2>
 <p>Sweet Japanese omelette rolled with sushi rice and nori.</p>
 <div class="price">$7.49</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 <div class="menu-item">
-<img src="images/menu/tamago_sushi.webp">
+<img src="images/menu/tamago_sushi.webp" alt="Tamago Sushi">
 <div class="menu-text">
 <h2>Tamago Sushi</h2>
 <p>Japanese omelette sushi with a delicate sweet flavor.</p>
 <div class="price">$7.99</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 <div class="menu-item">
-<img src="images/menu/unagibbq.webp">
+<img src="images/menu/unagibbq.webp" alt="Unagi BBQ">
 <div class="menu-text">
 <h2>Unagi BBQ</h2>
 <p>Grilled freshwater eel glazed with savory Japanese BBQ sauce.</p>
 <div class="price">$11.99</div>
+<button>Add to Cart</button>
 </div>
 </div>
 
 </div>
 
-<div class="back">
-<a href="index.html">Back to Home</a>
-</div>
-
+<!-- IMAGE VIEWER -->
 <div id="imageViewer">
-    <span id="closeBtn">&times;</span>
-    <img id="viewerImg">
+<span id="closeBtn">&times;</span>
+<img id="viewerImg">
 </div>
 
-</body>
-</html>
-<script>
+<!-- CART SIDEBAR -->
+<div id="cart" class="cart">
+<h2>Your Cart</h2>
+<ul id="cart-items"></ul>
+<div class="cart-total">Total: $<span id="cart-total">0.00</span></div>
+<button id="checkoutBtn">Checkout</button>
+<button id="closeCartBtn">Close Cart</button>
+</div>
 
+<!-- CART TOGGLE BUTTON -->
+<button id="cartToggleBtn">🛒 Cart (<span id="cart-count">0</span>)</button>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2026 Miso Ya. All rights reserved.</p>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+// ================= IMAGE VIEWER =================
 const images = document.querySelectorAll(".menu-item img");
 const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImg");
@@ -250,14 +145,111 @@ images.forEach(img => {
     });
 });
 
-closeBtn.addEventListener("click", () => {
-    viewer.style.display = "none";
+closeBtn.onclick = () => viewer.style.display = "none";
+
+viewer.onclick = (e) => {
+    if(e.target !== viewerImg){ viewer.style.display = "none"; }
+}
+
+// ================= HAMBURGER TOGGLE =================
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburger.classList.toggle('active');
 });
 
-viewer.addEventListener("click", (e) => {
-    if(e.target !== viewerImg){
-        viewer.style.display = "none";
+// ================= CART FUNCTIONALITY =================
+const cart = [];
+const cartToggleBtn = document.getElementById('cartToggleBtn');
+const cartSidebar = document.getElementById('cart');
+const cartItemsUl = document.getElementById('cart-items');
+const cartTotalSpan = document.getElementById('cart-total');
+const cartCountSpan = document.getElementById('cart-count');
+const checkoutBtn = document.getElementById('checkoutBtn');
+const closeCartBtn = document.getElementById('closeCartBtn');
+
+// Update cart display
+function updateCart() {
+    cartItemsUl.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+            ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}
+            <button onclick="removeItem(${index})">❌</button>
+        `;
+        cartItemsUl.appendChild(li);
+
+        // Add <hr> after each item except the last
+        if (index < cart.length - 1) {
+            const hr = document.createElement('hr');
+            hr.style.border = '0.5px solid #333';
+            hr.style.margin = '8px 0';
+            cartItemsUl.appendChild(hr);
+        }
+
+        total += item.price * item.quantity;
+    });
+
+    cartTotalSpan.textContent = total.toFixed(2);
+    cartCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+}
+
+// Add item to cart or increment quantity
+function addToCart(name, price) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1 });
     }
+    updateCart();
+}
+
+// Remove item or decrement quantity
+function removeItem(index) {
+    if (cart[index].quantity > 1) {
+        cart[index].quantity -= 1;
+    } else {
+        cart.splice(index, 1);
+    }
+    updateCart();
+}
+
+// Add to cart buttons
+document.querySelectorAll('.menu-item button').forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+        const item = document.querySelectorAll('.menu-item')[i];
+        const name = item.querySelector('h2').textContent;
+        const price = parseFloat(item.querySelector('.price').textContent.replace('$',''));
+        addToCart(name, price);
+        cartSidebar.classList.add('show');
+    });
 });
 
+// Cart toggle buttons
+cartToggleBtn.addEventListener('click', () => {
+    cartSidebar.classList.toggle('show');
+});
+
+closeCartBtn.addEventListener('click', () => {
+    cartSidebar.classList.remove('show');
+});
+
+// Checkout button
+checkoutBtn.addEventListener('click', () => {
+    if(cart.length === 0) { 
+        alert('Your cart is empty!'); 
+        return; 
+    }
+    alert(`Thank you! Your total is $${cart.reduce((sum,item)=>sum+item.price*item.quantity,0).toFixed(2)}`);
+    cart.length = 0;
+    updateCart();
+    cartSidebar.classList.remove('show');
+});
 </script>
+
+</body>
+</html>
