@@ -299,21 +299,9 @@ nav {
     overflow-y: auto;
     border-left: 1px solid #333;
 }
-#cart.show {
-    right: 0;
-}
+#cart.show { right: 0; }
 #cart h2 { color: #f77f00; margin-bottom: 15px; }
-#cart-items li {
-    margin-bottom: 12px;
-    list-style: none;
-}
-#cart-items li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    list-style: none;
-}
+#cart-items li { margin-bottom: 12px; list-style: none; }
 #cart-items li button {
     background: none;
     border: none;
@@ -355,12 +343,29 @@ nav {
 .contact-container {
     max-width: 1100px;
     margin: auto;
-    padding: 110px 20px;
+    padding: 100px 20px; /* desktop */
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
 
+@media (max-width: 768px) {
+    .contact-container {
+        padding-top: 160px; /* clears mobile header with hamburger */
+        grid-template-columns: 1fr; /* stack columns */
+    }
+
+    /* Fix hero/intro title wrapping */
+    #intro h1 {
+        font-size: 2rem;
+        line-height: 1.3;
+        word-break: normal;
+        white-space: normal;
+        text-align: center;
+    }
+}
+
+/* CONTACT INFO & FORM */
 .contact-info, .contact-form {
     background: #1b1b1b;
     padding: 30px;
@@ -372,9 +377,7 @@ nav {
     margin-bottom: 20px;
 }
 
-.info-item {
-    margin-bottom: 18px;
-}
+.info-item { margin-bottom: 18px; }
 .info-item strong { color: #e63946; }
 
 .hours div {
@@ -410,15 +413,8 @@ nav {
 .contact-form button:hover { background: #f77f00; }
 
 /* MAP */
-.map {
-    margin-top: 50px;
-}
-.map iframe {
-    width: 100%;
-    height: 350px;
-    border: none;
-    border-radius: 10px;
-}
+.map { margin-top: 50px; }
+.map iframe { width: 100%; height: 350px; border: none; border-radius: 10px; }
 
 /* FOOTER */
 footer {
@@ -430,11 +426,27 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ================= ADD TO CART BUTTON ================= */
+.menu-item button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: #e63946;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.95rem;
+}
+
+.menu-item button:hover {
+    background: #f77f00;
+    transform: scale(1.05);
+}
+
 /* ================= RESPONSIVE ================= */
 @media(max-width: 900px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
+    .contact-container { grid-template-columns: 1fr; }
 }
 
 @media(max-width: 768px) {
@@ -448,23 +460,4 @@ footer {
         text-align: center;
     }
     .menu-item img { width: 100%; height: 220px; }
-}
-
-/* ================= ADD TO CART BUTTON - LIGHT & CLEAN ================= */
-.menu-item button {
-    padding: 0.4rem 0.8rem;
-    border: none;
-    background: #e63946;  /* keep brand color */
-    color: #fff;
-    font-weight: 500;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-size: 0.95rem;
-}
-
-.menu-item button:hover {
-    background: #f77f00; /* subtle hover */
-    transform: scale(1.05); /* small pop for interactivity */
-
 }
