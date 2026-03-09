@@ -16,14 +16,12 @@
 <nav>
     <div class="logo">Miso Ya</div>
 
-    <!-- Hamburger icon -->
     <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- Menu items -->
     <div class="menu" id="nav-menu">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
@@ -113,6 +111,9 @@
 <img id="viewerImg">
 </div>
 
+<!-- CART OVERLAY -->
+<div id="cartOverlay"></div>
+
 <!-- CART SIDEBAR -->
 <div id="cart" class="cart">
 <h2>Your Cart</h2>
@@ -130,9 +131,9 @@
 <p>© 2026 Miso Ya. All rights reserved.</p>
 </footer>
 
-<!-- SCRIPTS -->
 <script>
-// ================= IMAGE VIEWER =================
+
+// IMAGE VIEWER
 const images = document.querySelectorAll(".menu-item img");
 const viewer = document.getElementById("imageViewer");
 const viewerImg = document.getElementById("viewerImg");
@@ -151,104 +152,196 @@ viewer.onclick = (e) => {
     if(e.target !== viewerImg){ viewer.style.display = "none"; }
 }
 
-// ================= HAMBURGER TOGGLE =================
+
+// HAMBURGER
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
+
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('show');
     hamburger.classList.toggle('active');
 });
 
-// ================= CART FUNCTIONALITY =================
+
+// CART SYSTEM
 const cart = [];
 const cartToggleBtn = document.getElementById('cartToggleBtn');
 const cartSidebar = document.getElementById('cart');
+const cartOverlay = document.getElementById('cartOverlay');
 const cartItemsUl = document.getElementById('cart-items');
 const cartTotalSpan = document.getElementById('cart-total');
 const cartCountSpan = document.getElementById('cart-count');
 const checkoutBtn = document.getElementById('checkoutBtn');
 const closeCartBtn = document.getElementById('closeCartBtn');
 
-// Update cart display
+
+// UPDATE CART
 function updateCart() {
+
     cartItemsUl.innerHTML = '';
     let total = 0;
 
-    cart.forEach((item, index) => {
+    cart.forEach((item,index)=>{
+
         const li = document.createElement('li');
+
         li.innerHTML = `
-            ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}
-            <button onclick="removeItem(${index})">❌</button>
+        ${item.name} x${item.quantity} - $${(item.price*item.quantity).toFixed(2)}
+        <button onclick="event.stopPropagation(); removeItem(${index})">❌</button>
         `;
+
         cartItemsUl.appendChild(li);
 
-        // Add <hr> after each item except the last
-        if (index < cart.length - 1) {
+        if(index < cart.length-1){
+
             const hr = document.createElement('hr');
-            hr.style.border = '0.5px solid #333';
-            hr.style.margin = '8px 0';
+
+            hr.style.border='0.5px solid #333';
+            hr.style.margin='8px 0';
+
             cartItemsUl.appendChild(hr);
+
         }
 
-        total += item.price * item.quantity;
+        total += item.price*item.quantity;
+
     });
 
     cartTotalSpan.textContent = total.toFixed(2);
-    cartCountSpan.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCountSpan.textContent = cart.reduce((sum,item)=>sum+item.quantity,0);
+
 }
 
-// Add item to cart or increment quantity
-function addToCart(name, price) {
-    const existingItem = cart.find(item => item.name === name);
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({ name, price, quantity: 1 });
+
+// ADD ITEM
+function addToCart(name,price){
+
+    const existingItem = cart.find(item=>item.name===name);
+
+    if(existingItem){
+        existingItem.quantity +=1;
     }
-    updateCart();
-}
-
-// Remove item or decrement quantity
-function removeItem(index) {
-    if (cart[index].quantity > 1) {
-        cart[index].quantity -= 1;
-    } else {
-        cart.splice(index, 1);
+    else{
+        cart.push({name,price,quantity:1});
     }
+
     updateCart();
+
 }
 
-// Add to cart buttons
-document.querySelectorAll('.menu-item button').forEach((btn, i) => {
-    btn.addEventListener('click', () => {
+
+// REMOVE ITEM
+function removeItem(index){
+
+    if(cart[index].quantity>1){
+        cart[index].quantity -=1;
+    }
+    else{
+        cart.splice(index,1);
+    }
+
+    updateCart();
+
+}
+
+
+// ADD BUTTONS
+document.querySelectorAll('.menu-item button').forEach((btn,i)=>{
+
+    btn.addEventListener('click',()=>{
+
         const item = document.querySelectorAll('.menu-item')[i];
+
         const name = item.querySelector('h2').textContent;
+
         const price = parseFloat(item.querySelector('.price').textContent.replace('$',''));
-        addToCart(name, price);
+
+        addToCart(name,price);
+
         cartSidebar.classList.add('show');
+        cartOverlay.classList.add('show');
+
     });
+
 });
 
-// Cart toggle buttons
-cartToggleBtn.addEventListener('click', () => {
+
+// TOGGLE CART
+cartToggleBtn.addEventListener('click',()=>{
+
     cartSidebar.classList.toggle('show');
+    cartOverlay.classList.toggle('show');
+
 });
 
-closeCartBtn.addEventListener('click', () => {
+
+// CLOSE BUTTON
+closeCartBtn.addEventListener('click',()=>{
+
     cartSidebar.classList.remove('show');
+    cartOverlay.classList.remove('show');
+
 });
 
-// Checkout button
-checkoutBtn.addEventListener('click', () => {
-    if(cart.length === 0) { 
-        alert('Your cart is empty!'); 
-        return; 
+
+// OVERLAY CLICK
+cartOverlay.addEventListener('click',()=>{
+
+    cartSidebar.classList.remove('show');
+    cartOverlay.classList.remove('show');
+
+});
+
+
+// CHECKOUT
+checkoutBtn.addEventListener('click',()=>{
+
+    if(cart.length===0){
+        alert('Your cart is empty!');
+        return;
     }
+
     alert(`Thank you! Your total is $${cart.reduce((sum,item)=>sum+item.price*item.quantity,0).toFixed(2)}`);
-    cart.length = 0;
+
+    cart.length=0;
+
     updateCart();
+
     cartSidebar.classList.remove('show');
+    cartOverlay.classList.remove('show');
+
 });
+
+
+// CLICK OUTSIDE
+document.addEventListener('click',(e)=>{
+
+    const insideCart = cartSidebar.contains(e.target);
+    const cartBtn = cartToggleBtn.contains(e.target);
+    const menuItem = e.target.closest('.menu-item');
+
+    if(!insideCart && !cartBtn && !menuItem){
+
+        cartSidebar.classList.remove('show');
+        cartOverlay.classList.remove('show');
+
+    }
+
+});
+
+
+// ESC CLOSE
+document.addEventListener('keydown',(e)=>{
+
+    if(e.key==="Escape"){
+
+        cartSidebar.classList.remove('show');
+        cartOverlay.classList.remove('show');
+
+    }
+
+});
+
 </script>
 
 </body>
