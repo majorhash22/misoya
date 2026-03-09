@@ -187,16 +187,14 @@ function updateCart() {
 
         li.innerHTML = `
         <div class="cart-row">
-            <div class="cart-item-name">${item.name}</div>
-
+            <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-price">$${(item.price*item.quantity).toFixed(2)}</div>
+            </div>
             <div class="qty-control">
                 <button onclick="event.stopPropagation(); changeQty(${index},-1)">−</button>
                 <span>${item.quantity}</span>
                 <button onclick="event.stopPropagation(); changeQty(${index},1)">+</button>
-            </div>
-
-            <div class="cart-item-price">
-                $${(item.price*item.quantity).toFixed(2)}
             </div>
         </div>
         `;
