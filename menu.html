@@ -186,8 +186,19 @@ function updateCart() {
         const li = document.createElement('li');
 
         li.innerHTML = `
-        ${item.name} x${item.quantity} - $${(item.price*item.quantity).toFixed(2)}
-        <button onclick="event.stopPropagation(); removeItem(${index})">❌</button>
+        <div class="cart-row">
+            <div class="cart-item-name">${item.name}</div>
+
+            <div class="qty-control">
+                <button onclick="event.stopPropagation(); changeQty(${index},-1)">−</button>
+                <span>${item.quantity}</span>
+                <button onclick="event.stopPropagation(); changeQty(${index},1)">+</button>
+            </div>
+
+            <div class="cart-item-price">
+                $${(item.price*item.quantity).toFixed(2)}
+            </div>
+        </div>
         `;
 
         cartItemsUl.appendChild(li);
@@ -244,6 +255,16 @@ function removeItem(index){
 
 }
 
+function changeQty(index, amount){
+
+    cart[index].quantity += amount;
+
+    if(cart[index].quantity <= 0){
+        cart.splice(index,1);
+    }
+
+    updateCart();
+}
 
 // ADD BUTTONS
 document.querySelectorAll('.menu-item button').forEach((btn,i)=>{
