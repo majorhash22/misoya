@@ -339,6 +339,56 @@ nav {
 }
 #cartToggleBtn:hover { background: #f77f00; }
 
+/* CART ROW */
+.cart-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+}
+
+/* ITEM NAME */
+.cart-item-name{
+    font-size:0.9rem;
+    flex:1;
+}
+
+/* PRICE */
+.cart-item-price{
+    font-weight:600;
+    color:#e63946;
+    font-size:0.9rem;
+}
+
+/* QTY CONTROL */
+.qty-control{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.qty-control button{
+    width:24px;
+    height:24px;
+    border:none;
+    border-radius:4px;
+    background:#2a2a2a;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.qty-control button:hover{
+    background:#e63946;
+}
+
+.qty-control span{
+    min-width:18px;
+    text-align:center;
+    font-size:0.9rem;
+}
+
 /* ================= CONTACT ================= */
 .contact-container {
     max-width: 1100px;
