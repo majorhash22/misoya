@@ -44,6 +44,14 @@ nav {
     color: #e63946;
 }
 
+.logo-miso {
+    color: #2e8b57; /* Sea green */
+}
+
+.logo-ya {
+    color: #e63946; /* Original red */
+}
+
 .menu {
     display: flex;
     gap: 1.8rem;
