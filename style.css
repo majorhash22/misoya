@@ -450,14 +450,60 @@ footer {
 }
 
 @media(max-width: 768px) {
+
+    nav {
+        flex-direction: row; /* keep logo left, burger right */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        flex-direction: column;
+        background: #1a1a1a;
+        padding: 1rem;
+        border-left: 1px solid #333;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
     .slide img { height: 300px; }
-    nav { flex-direction: column; gap: 0.7rem; }
-    .hamburger { display: flex; }
-    .menu { display: none; }
-    .menu.show { display: flex; }
+
     .menu-item {
         flex-direction: column !important;
         text-align: center;
     }
-    .menu-item img { width: 100%; height: 220px; }
+
+    .menu-item img {
+        width: 100%;
+        height: 220px;
+    }
+}
+/* CART OVERLAY */
+#cartOverlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.6);
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+    z-index:9999;
+}
+
+#cartOverlay.show{
+    opacity:1;
+    visibility:visible;
 }
